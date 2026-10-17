@@ -82,7 +82,134 @@ body {
   }
 }
 
+/* ---------- Animation ขั้นตอนการใช้งาน ---------- */
+.howto-device {
+  transition: transform 0.9s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+.howto-fade,
+.howto-beam {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.howto-fade.is-on,
+.howto-beam.is-on {
+  opacity: 1;
+}
+.howto-beam.is-on {
+  animation: beam-flicker 2.2s ease-in-out infinite;
+}
+.howto-projection {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 0.4s ease;
+}
+.howto-projection.is-on {
+  opacity: 1;
+}
+.howto-projection.is-cycling {
+  animation: mode-cycle 3.6s steps(1) infinite, size-cycle 3.6s ease-in-out infinite;
+}
+.howto-vein {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.2s ease-out;
+}
+.is-on .howto-vein {
+  stroke-dashoffset: 0;
+}
+.howto-led {
+  fill: #9aa7b6;
+  transition: fill 0.3s;
+}
+.howto-led.is-on {
+  fill: #22c55e;
+}
+.howto-led.is-blink {
+  animation: led-blink 1.2s steps(1) infinite;
+}
+.howto-ring {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.howto-ring.is-on {
+  animation: ring-pulse 1.4s ease-out infinite;
+}
+.howto-press {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: press 0.6s ease-in-out infinite;
+  fill: #00adee;
+}
+.howto-dot {
+  animation: dot-blink 3.6s steps(1) infinite;
+}
+.howto-target {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: target-pulse 1.4s ease-in-out infinite;
+}
+.howto-progress {
+  animation-name: progress;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes beam-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.75; }
+}
+@keyframes mode-cycle {
+  0% { filter: none; }
+  17% { filter: hue-rotate(160deg) saturate(1.6); }
+  33% { filter: hue-rotate(260deg) saturate(2); }
+  50% { filter: hue-rotate(60deg); }
+  67% { filter: hue-rotate(200deg) brightness(1.2); }
+  83% { filter: hue-rotate(310deg) saturate(1.4); }
+}
+@keyframes size-cycle {
+  0%, 30% { transform: scale(1); }
+  40%, 60% { transform: scale(0.82); }
+  70%, 90% { transform: scale(1.08); }
+}
+@keyframes led-blink {
+  0% { fill: #9aa7b6; }
+  50% { fill: #22c55e; }
+}
+@keyframes ring-pulse {
+  0% { opacity: 0.9; transform: scale(1); }
+  100% { opacity: 0; transform: scale(2.6); }
+}
+@keyframes press {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(0.75); }
+}
+@keyframes dot-blink {
+  0% { opacity: 1; }
+  17% { opacity: 0.25; }
+}
+@keyframes target-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+@keyframes progress {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .howto-device,
+  .howto-vein {
+    transition: none !important;
+  }
+  .howto-beam,
+  .howto-projection,
+  .howto-led,
+  .howto-ring,
+  .howto-press,
+  .howto-dot,
+  .howto-target,
   .hero-pop,
   .hero-float,
   .hero-glow,

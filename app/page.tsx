@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
+import HowToUse from "./how-to-use";
 
 const CONTACT = {
   phoneLabel: "02-682-9151-4",
@@ -157,6 +158,7 @@ export default function Home() {
           <nav className="hidden items-center gap-6 text-sm md:flex" aria-label="เมนูหลัก">
             <a href="#features" className="hover:text-sky">จุดเด่น</a>
             <a href="#product" className="hover:text-sky">สินค้า</a>
+            <a href="#how-to" className="hover:text-sky">วิธีใช้</a>
             <a href="#faq" className="hover:text-sky">คำถาม</a>
             <a href="#contact" className="hover:text-sky">ติดต่อเรา</a>
           </nav>
@@ -315,6 +317,19 @@ export default function Home() {
                 </a>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* ขั้นตอนการใช้งาน */}
+        <section id="how-to" className="scroll-mt-20 bg-mist py-14 md:py-20">
+          <div className="mx-auto max-w-6xl px-4">
+            <SectionLabel>ขั้นตอนการใช้งาน</SectionLabel>
+            <h2 className="text-section font-semibold">ใช้งานง่ายใน 5 ขั้นตอน</h2>
+            <p className="mt-3 max-w-2xl text-muted">ดูภาพจำลองการใช้งาน VeinVu 200 ทีละขั้น หรือกดเลือกขั้นตอนที่ต้องการดูได้เลย</p>
+            <div className="mt-8">
+              <HowToUse />
+            </div>
+            <p className="mt-6 text-xs text-muted">* ภาพจำลองเพื่ออธิบายหลักการใช้งาน โปรดศึกษาวิธีใช้และระยะการใช้งานที่ถูกต้องจากคู่มือของผู้ผลิต</p>
           </div>
         </section>
 
