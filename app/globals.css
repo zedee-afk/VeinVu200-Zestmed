@@ -82,68 +82,83 @@ body {
   }
 }
 
-/* ---------- Animation ขั้นตอนการใช้งาน ---------- */
+/* ---------- Animation ขั้นตอนการใช้งาน (สไตล์จอเครื่องมือแพทย์) ---------- */
+.howto-stage {
+  background-color: #f4f9ff;
+  background-image:
+    radial-gradient(circle at 50% 30%, rgb(0 173 238 / 0.12), transparent 60%),
+    linear-gradient(rgb(26 75 173 / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(26 75 173 / 0.06) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px, 20px 20px;
+}
+.howto-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 0.92);
+  padding: 0.125rem 0.5rem;
+  color: var(--color-navy);
+  box-shadow: 0 1px 3px rgb(15 42 102 / 0.12);
+  letter-spacing: 0.02em;
+}
 .howto-device {
   transition: transform 0.9s cubic-bezier(0.34, 1.4, 0.64, 1);
 }
+.howto-btn {
+  position: absolute;
+  width: 9%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 9999px;
+  border: 2px solid #00adee;
+  opacity: 0;
+  pointer-events: none;
+}
+.howto-btn.is-on {
+  animation: btn-pulse 1.2s ease-out infinite;
+}
 .howto-fade,
-.howto-beam {
+.howto-beam,
+.howto-projection {
   opacity: 0;
   transition: opacity 0.5s ease;
 }
 .howto-fade.is-on,
-.howto-beam.is-on {
+.howto-beam.is-on,
+.howto-projection.is-on {
   opacity: 1;
+}
+.howto-beam {
+  transition: opacity 0.5s ease;
 }
 .howto-beam.is-on {
   animation: beam-flicker 2.2s ease-in-out infinite;
 }
-.howto-projection {
-  opacity: 0;
-  transform-box: fill-box;
-  transform-origin: center;
-  transition: opacity 0.4s ease;
+.howto-size {
+  transition: x 0.6s ease, y 0.6s ease, width 0.6s ease, height 0.6s ease;
 }
-.howto-projection.is-on {
-  opacity: 1;
+.howto-mode {
+  transition: fill 0.5s ease, opacity 0.5s ease;
 }
-.howto-projection.is-cycling {
-  animation: mode-cycle 3.6s steps(1) infinite, size-cycle 3.6s ease-in-out infinite;
+.howto-mode-stroke {
+  transition: stroke 0.5s ease, stroke-dashoffset 1.2s ease-out;
 }
 .howto-vein {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  transition: stroke-dashoffset 1.2s ease-out;
+  transition: stroke 0.5s ease, stroke-dashoffset 1.2s ease-out;
 }
 .is-on .howto-vein {
   stroke-dashoffset: 0;
 }
-.howto-led {
-  fill: #9aa7b6;
-  transition: fill 0.3s;
+.howto-scan {
+  animation: scan 2.4s ease-in-out infinite;
 }
-.howto-led.is-on {
-  fill: #22c55e;
-}
-.howto-led.is-blink {
-  animation: led-blink 1.2s steps(1) infinite;
-}
-.howto-ring {
-  opacity: 0;
+.howto-focus {
   transform-box: fill-box;
   transform-origin: center;
-}
-.howto-ring.is-on {
-  animation: ring-pulse 1.4s ease-out infinite;
-}
-.howto-press {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: press 0.6s ease-in-out infinite;
-  fill: #00adee;
-}
-.howto-dot {
-  animation: dot-blink 3.6s steps(1) infinite;
+  animation: focus-in 1.6s ease-out infinite;
 }
 .howto-target {
   transform-box: fill-box;
@@ -156,38 +171,22 @@ body {
   animation-fill-mode: both;
 }
 
+@keyframes btn-pulse {
+  0% { opacity: 1; scale: 1; box-shadow: 0 0 0 0 rgb(0 173 238 / 0.6); }
+  100% { opacity: 0; scale: 2.2; box-shadow: 0 0 0 6px rgb(0 173 238 / 0); }
+}
 @keyframes beam-flicker {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.75; }
 }
-@keyframes mode-cycle {
-  0% { filter: none; }
-  17% { filter: hue-rotate(160deg) saturate(1.6); }
-  33% { filter: hue-rotate(260deg) saturate(2); }
-  50% { filter: hue-rotate(60deg); }
-  67% { filter: hue-rotate(200deg) brightness(1.2); }
-  83% { filter: hue-rotate(310deg) saturate(1.4); }
+@keyframes scan {
+  0%, 100% { transform: translateY(0); opacity: 0; }
+  10%, 90% { opacity: 0.7; }
+  50% { transform: translateY(var(--scan-h, 60px)); }
 }
-@keyframes size-cycle {
-  0%, 30% { transform: scale(1); }
-  40%, 60% { transform: scale(0.82); }
-  70%, 90% { transform: scale(1.08); }
-}
-@keyframes led-blink {
-  0% { fill: #9aa7b6; }
-  50% { fill: #22c55e; }
-}
-@keyframes ring-pulse {
-  0% { opacity: 0.9; transform: scale(1); }
-  100% { opacity: 0; transform: scale(2.6); }
-}
-@keyframes press {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(0.75); }
-}
-@keyframes dot-blink {
-  0% { opacity: 1; }
-  17% { opacity: 0.25; }
+@keyframes focus-in {
+  0% { transform: scale(1.5); opacity: 0; }
+  60%, 100% { transform: scale(1); opacity: 1; }
 }
 @keyframes target-pulse {
   0%, 100% { transform: scale(1); }
@@ -200,15 +199,14 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .howto-device,
-  .howto-vein {
+  .howto-vein,
+  .howto-size {
     transition: none !important;
   }
   .howto-beam,
-  .howto-projection,
-  .howto-led,
-  .howto-ring,
-  .howto-press,
-  .howto-dot,
+  .howto-btn,
+  .howto-scan,
+  .howto-focus,
   .howto-target,
   .hero-pop,
   .hero-float,
