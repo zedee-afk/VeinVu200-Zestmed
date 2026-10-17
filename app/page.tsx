@@ -141,10 +141,11 @@ export default function Home() {
       <header className="sticky top-0 z-30 border-b-4 border-sky bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
           <a href="#top" className="flex items-center gap-3" aria-label="Zest-Med หน้าแรก">
-            <span className="grid h-10 w-10 place-items-center rounded-md border-2 border-sky font-display text-lg font-semibold text-sky">ZM</span>
-            <span className="leading-tight">
-              <span className="block font-display text-lg font-semibold text-sky">ZEST-MED</span>
-              <span className="hidden text-xs text-muted sm:block">BEYOND EXPERTISE</span>
+            <Image src="/images/zest-med-logo.png" alt="ZEST-MED" width={377} height={377} priority className="h-12 w-12" />
+            <span className="hidden border-l border-line pl-3 text-xs leading-tight tracking-wide text-navy sm:block">
+              BEYOND
+              <br />
+              EXPERTISE
             </span>
           </a>
           <nav className="hidden items-center gap-6 text-sm md:flex" aria-label="เมนูหลัก">
@@ -356,6 +357,7 @@ export default function Home() {
       {/* ส่วนท้าย */}
       <footer className="bg-navy-deep text-sm text-white/75">
         <div className="mx-auto max-w-6xl px-4 py-10">
+          <Image src="/images/zest-med-logo.png" alt="ZEST-MED" width={377} height={377} className="mb-4 h-16 w-16 rounded-lg bg-white p-1.5" />
           <p className="font-display text-base text-white">บริษัท เซสท์-เมด จำกัด (Zest-Med Co., Ltd.)</p>
           <p className="mt-2">896/1-2 Office Tower 1 SV City ชั้น 3 ถ.พระราม 3 แขวงบางโพงพาง เขตยานนาวา กรุงเทพฯ 10120</p>
           <p className="mt-1">โทร {CONTACT.phoneLabel} · แฟกซ์ 02-682-9155 · LINE {CONTACT.lineLabel}</p>
