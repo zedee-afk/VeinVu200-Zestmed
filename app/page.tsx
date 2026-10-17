@@ -44,18 +44,24 @@ const highlights = [
     title: "เห็นแนวเส้นเลือดก่อนเจาะ",
     text: "ฉายภาพเส้นเลือดใต้ผิวหนังลงบนผิวผู้ป่วยแบบ Real-time ช่วยประเมินตำแหน่งได้มั่นใจขึ้น",
     image: "/images/vein-arm.jpg",
+    w: 360,
+    h: 104,
   },
   {
     icon: icons.sliders,
     title: "ปรับภาพให้เหมาะกับเคส",
     text: "เลือกได้ 6 โหมดภาพ 3 ขนาดการแสดงผล พร้อม HD Mode ให้เหมาะกับสภาพผิวแต่ละคน",
     image: "/images/display-modes.jpg",
+    w: 378,
+    h: 96,
   },
   {
     icon: icons.hospital,
     title: "ใช้ได้ในหลายหน่วยงาน",
     text: "พกพาสะดวก เหมาะกับ ER, Ward, OPD, Pediatric, NICU, ICU และหน่วยรับบริจาคโลหิต",
     image: "/images/clinical-use.jpg",
+    w: 352,
+    h: 75,
   },
 ];
 
@@ -111,7 +117,7 @@ function PrimaryButton({ href, children, icon }: { href: string; children: React
       href={href}
       target={href.startsWith("http") ? "_blank" : undefined}
       rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-      className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-orange px-6 py-3 font-display text-lg text-white shadow-lg shadow-orange/30 transition hover:bg-orange-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+      className="inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-orange px-6 py-3 font-display text-lg text-white shadow-lg shadow-orange/30 transition hover:bg-orange-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
     >
       {icon}
       {children}
@@ -125,7 +131,7 @@ function SecondaryButton({ href, children, icon }: { href: string; children: Rea
       href={href}
       target={href.startsWith("http") ? "_blank" : undefined}
       rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-      className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-sky bg-white px-6 py-3 font-display text-lg text-navy transition hover:bg-sky-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+      className="inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-full border-2 border-sky bg-white px-6 py-3 font-display text-lg text-navy transition hover:bg-sky-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
     >
       {icon}
       {children}
@@ -170,21 +176,21 @@ export default function Home() {
         <section className="overflow-hidden bg-gradient-to-b from-mist to-white">
           <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 pb-14 pt-10 md:grid-cols-2 md:pb-20 md:pt-16">
             <div>
-              <span className="inline-block rounded-full bg-navy px-4 py-1.5 text-sm text-white">
+              <span className="fade-up inline-block rounded-full bg-navy px-4 py-1.5 text-sm text-white">
                 เครื่องสแกนเส้นเลือด NIR
               </span>
-              <h1 className="mt-5 text-hero font-semibold">
+              <h1 className="fade-up mt-5 text-hero font-semibold" style={{ animationDelay: "0.1s" }}>
                 <span className="block text-navy">VeinVu 200</span>
                 <span className="block text-sky">เห็นเส้นก่อนแทง</span>
               </h1>
-              <p className="mt-4 font-display text-xl text-navy md:text-2xl">
+              <p className="fade-up mt-4 font-display text-xl text-navy md:text-2xl" style={{ animationDelay: "0.2s" }}>
                 มองเห็นแนวเส้นเลือดชัดเจนขึ้น เพื่อประกอบการประเมินก่อนเจาะ
               </p>
-              <p className="mt-4 max-w-xl text-base md:text-lg">
+              <p className="fade-up mt-4 max-w-xl text-base md:text-lg" style={{ animationDelay: "0.3s" }}>
                 เครื่องช่วยมองเห็นเส้นเลือดด้วยเทคโนโลยี Near-Infrared 850 nm แสดงภาพแนวเส้นเลือดใต้ผิวหนังแบบ Real-time
                 ช่วยบุคลากรทางการแพทย์ประเมินตำแหน่งก่อนทำหัตถการ
               </p>
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <div className="fade-up mt-7 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "0.4s" }}>
                 <PrimaryButton href={CONTACT.lineHref} icon={<Icon>{icons.calendar}</Icon>}>
                   นัดทดลองใช้ VeinVu 200
                 </PrimaryButton>
@@ -192,7 +198,7 @@ export default function Home() {
                   โทร {CONTACT.phoneLabel}
                 </SecondaryButton>
               </div>
-              <ul className="mt-7 flex flex-wrap gap-2" aria-label="มาตรฐาน">
+              <ul className="fade-up mt-7 flex flex-wrap gap-2" style={{ animationDelay: "0.5s" }} aria-label="มาตรฐาน">
                 {["US FDA", "KFDA", "THAI FDA"].map((s) => (
                   <li key={s} className="flex items-center gap-1.5 rounded-lg border border-line bg-white px-3 py-1.5 text-sm font-medium text-navy">
                     <Icon className="h-4 w-4 text-sky">{icons.shield}</Icon>
@@ -202,15 +208,20 @@ export default function Home() {
               </ul>
             </div>
             <div className="relative mx-auto w-full max-w-md md:max-w-none">
-              <Image
-                src="/images/hero-device.png"
-                alt="เครื่องสแกนเส้นเลือด VeinVu 200"
-                width={545}
-                height={510}
-                priority
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="h-auto w-full mix-blend-multiply"
-              />
+              <div aria-hidden="true" className="hero-glow absolute inset-[8%] rounded-full bg-sky/40 blur-3xl" />
+              <div className="hero-pop relative">
+                <div className="hero-float">
+                  <Image
+                    src="/images/veinvu200-hero.png"
+                    alt="เครื่องสแกนเส้นเลือด VeinVu 200"
+                    width={545}
+                    height={510}
+                    priority
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="h-auto w-full"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -222,7 +233,7 @@ export default function Home() {
             <h2 className="text-section font-semibold">ทำไมต้อง VeinVu 200</h2>
             <div className="mt-8 grid gap-5 md:grid-cols-3">
               {highlights.map((h) => (
-                <article key={h.title} className="flex flex-col overflow-hidden rounded-2xl border-2 border-line bg-white transition hover:border-sky hover:shadow-xl hover:shadow-sky/10">
+                <article key={h.title} className="pop-on-scroll flex flex-col overflow-hidden rounded-2xl border-2 border-line bg-white transition hover:border-sky hover:shadow-xl hover:shadow-sky/10">
                   <div className="flex-1 p-6">
                     <span className="grid h-14 w-14 place-items-center rounded-full bg-sky-soft text-navy">
                       <Icon className="h-7 w-7">{h.icon}</Icon>
@@ -230,7 +241,7 @@ export default function Home() {
                     <h3 className="mt-4 text-card font-medium">{h.title}</h3>
                     <p className="mt-2 text-muted">{h.text}</p>
                   </div>
-                  <Image src={h.image} alt="" width={380} height={104} sizes="(min-width: 768px) 33vw, 100vw" className="h-28 w-full object-cover" />
+                  <Image src={h.image} alt="" width={h.w} height={h.h} sizes="(min-width: 768px) 33vw, 100vw" className="h-auto w-full" />
                 </article>
               ))}
             </div>
@@ -259,7 +270,7 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-              <div className="overflow-hidden rounded-2xl bg-white shadow-xl shadow-navy/10">
+              <div className="pop-on-scroll overflow-hidden rounded-2xl bg-white shadow-xl shadow-navy/10">
                 <Image src="/images/demo-nurse.jpg" alt="พยาบาลใช้ VeinVu 200 ส่องหาเส้นเลือดที่แขนผู้ป่วย" width={548} height={165} sizes="(min-width: 768px) 50vw, 100vw" className="h-auto w-full" />
                 <div className="p-6">
                   <p className="text-sm text-muted">ใช้ได้ในหน่วยงาน</p>
@@ -271,7 +282,7 @@ export default function Home() {
             <h3 className="mt-14 text-card font-medium md:text-2xl">คุณสมบัติหลักของ VeinVu 200</h3>
             <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
               {specs.map((s) => (
-                <div key={s.title} className="rounded-xl bg-white p-4 text-center">
+                <div key={s.title} className="pop-on-scroll rounded-xl bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-lg hover:shadow-sky/20">
                   <span className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-sky-soft text-sky">
                     <Icon>{s.icon}</Icon>
                   </span>
@@ -282,7 +293,7 @@ export default function Home() {
             </div>
 
             {/* ราคา */}
-            <div className="mt-10 grid gap-6 rounded-2xl bg-navy p-6 text-white md:grid-cols-[1fr_auto] md:items-center md:p-10">
+            <div className="pop-on-scroll mt-10 grid gap-6 rounded-2xl bg-navy p-6 text-white md:grid-cols-[1fr_auto] md:items-center md:p-10">
               <div>
                 <p className="text-sm text-sky">ราคา</p>
                 <p className="font-display text-2xl md:text-3xl">สอบถามราคาพิเศษสำหรับหน่วยงาน</p>
@@ -339,8 +350,8 @@ export default function Home() {
                 <p className="mt-4 text-white/85">
                   นัดวันเวลาที่สะดวก แล้วให้ทีม Zest-Med สาธิตการใช้งาน VeinVu 200 กับพยาบาลในหน่วยงานของคุณโดยตรง
                 </p>
-                <div className="mt-6 hidden overflow-hidden rounded-2xl md:block">
-                  <Image src="/images/team.jpg" alt="ทีม Zest-Med สาธิตเครื่องให้พยาบาล" width={289} height={112} className="h-40 w-full object-cover" />
+                <div className="pop-on-scroll mt-6 hidden overflow-hidden rounded-2xl md:block">
+                  <Image src="/images/team.jpg" alt="ทีม Zest-Med สาธิตเครื่องให้พยาบาล" width={289} height={112} className="h-auto w-full" />
                 </div>
               </div>
               <div className="grid gap-3">

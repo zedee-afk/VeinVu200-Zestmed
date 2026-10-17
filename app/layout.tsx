@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Zest-Med",
     locale: "th_TH",
     type: "website",
-    images: [{ url: "/images/hero-device.png", width: 545, height: 510, alt: "VeinVu 200" }],
+    images: [{ url: "/images/veinvu200-hero.png", width: 545, height: 510, alt: "VeinVu 200" }],
   },
   twitter: { card: "summary_large_image", title, description },
 };
